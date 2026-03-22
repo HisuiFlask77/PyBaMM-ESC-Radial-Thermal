@@ -93,7 +93,6 @@ param_rom.update({
 # Extract total volumetric heat generation calculated by the electrochemistry
 Q_gen_rom = model_rom.variables["Volume-averaged total heating [W.m-3]"]
 
-# Locate the native PyBaMM temperature variable for hijacking
 T_pybamm_native_rom = None
 for var in model_rom.rhs.keys():
     if var.name == "Volume-averaged cell temperature [K]":
@@ -103,7 +102,6 @@ for var in model_rom.rhs.keys():
 if T_pybamm_native_rom is None:
     raise ValueError("Native temperature variable not found!")
 
-# [ARCHITECTURE HACK]: Hijack the native variable to act as the Core Temperature.
 # This ensures that the severe core temperature governs the Arrhenius equations
 # across the entire cell, establishing a worst-case Two-Way Coupled ROM.
 T_core_rom = T_pybamm_native_rom
@@ -141,8 +139,6 @@ model_rom.rhs[T_surf_rom] = dT_surf_dt_rom
 
 # Apply initial conditions
 model_rom.initial_conditions[T_surf_rom] = pybamm.Scalar(initial_temperature_K)
-
-# Register variables for straightforward extraction
 model_rom.variables["Custom Core temp [C] ROM"] = T_core_rom - 273.15
 model_rom.variables["Custom Surface temp [C] ROM"] = T_surf_rom - 273.15
 

@@ -22,4 +22,3 @@ A high-fidelity **Two-Node Radial Thermal Reduced Order Model (ROM)** for PyBaMM
 This implementation serves as a computational proof-of-concept to overcome the challenges noted in:
 > *Zhou et al. (2026). "Addressing the limitations of lumped thermal modelling in predicting internal thermal runaway triggers during external short-circuit events."*
 ```bash
-pip install pybamm matplotlib pandas numpy

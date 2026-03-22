@@ -1,8 +1,5 @@
 # PyBaMM-ESC-Radial-Thermal-ROM
 
-[![PyBaMM](https://img.shields.io/badge/Powered%20by-PyBaMM-blue)](https://github.com/pybamm-team/PyBaMM)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Solver: CasADi](https://img.shields.io/badge/Solver-CasADi--JIT-orange)](https://web.casadi.org/)
 
 A high-fidelity **Two-Node Radial Thermal Reduced Order Model (ROM)** for PyBaMM. This project addresses the critical limitation of lumped thermal models in predicting internal thermal runaway triggers during extreme External Short-Circuit (ESC) events.
 
